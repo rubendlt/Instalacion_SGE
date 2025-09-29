@@ -1,5 +1,9 @@
 # Instalacion_SGE
-Para instalar PHP, Apache y los módulos necesarios en Ubuntu, ejecuta el siguiente comando:
+# Instalación y Configuración de WordPress en Ubuntu Server
+
+## 1️⃣ Instalar PHP, Apache y MySQL
+
+Actualiza la lista de paquetes e instala Apache, MySQL, PHP y extensiones necesarias:
 
 ```bash
 sudo apt update
@@ -17,27 +21,39 @@ sudo apt install apache2 \
                  php-mysql \
                  php-xml \
                  php-zip
+```
 
-## Descargar e instalar WordPress desde WordPress.org
+---
 
-Usaremos la versión oficial de WordPress desde WordPress.org en lugar del paquete APT del repositorio de Ubuntu, porque este es el método recomendado por WordPress. Además, así se evitan problemas inesperados que los voluntarios de soporte de WordPress podrían no prever y no podrían ayudar a resolver.
+## 2️⃣ Descargar e instalar WordPress desde WordPress.org
 
-Crea el directorio de instalación y descarga el archivo desde WordPress.org:
+Usaremos la versión oficial de WordPress desde WordPress.org, ya que es el método recomendado y evita problemas inesperados.
+
+Crea el directorio de instalación y descarga WordPress:
 
 ```bash
 sudo mkdir -p /srv/www
 sudo chown www-data: /srv/www
 curl https://wordpress.org/latest.tar.gz | sudo -u www-data tar zx -C /srv/www
+```
 
-mkdir -p /srv/www crea el directorio donde se instalará WordPress.
+**Explicación de los comandos:**
 
-chown www-data: /srv/www asigna la propiedad del directorio al usuario y grupo www-data, que es el que usa Apache.
+- `mkdir -p /srv/www` crea el directorio donde se instalará WordPress.
+- `chown www-data: /srv/www` asigna la propiedad del directorio al usuario y grupo `www-data` usado por Apache.
+- `curl ... | sudo -u www-data tar zx -C /srv/www` descarga la última versión de WordPress y la descomprime directamente en el directorio con permisos de Apache.
 
-curl ... | sudo -u www-data tar zx -C /srv/www descarga la última versión de WordPress y la descomprime directamente en el directorio de instalación con permisos del usuario de Apache.
+---
 
-## Configurar Apache para WordPress
+## 3️⃣ Configurar Apache para WordPress
 
-Crea el sitio de Apache para WordPress. Crea el archivo `/etc/apache2/sites-available/wordpress.conf` con el siguiente contenido:
+Crea el archivo de configuración del sitio de Apache:
+
+```bash
+sudo nano /etc/apache2/sites-available/wordpress.conf
+```
+
+Agrega el siguiente contenido:
 
 ```apache
 <VirtualHost *:80>
@@ -53,35 +69,35 @@ Crea el sitio de Apache para WordPress. Crea el archivo `/etc/apache2/sites-avai
         Require all granted
     </Directory>
 </VirtualHost>
+```
 
 ---
 
-
 ### Habilitar el sitio y la reescritura de URLs
 
-
 Habilita el sitio de WordPress:
-
 
 ```bash
 sudo a2ensite wordpress
 ```
 
-
 Habilita la reescritura de URLs:
-
 
 ```bash
 sudo a2enmod rewrite
 ```
 
-
 Deshabilita el sitio por defecto “It Works”:
-
 
 ```bash
 sudo a2dissite 000-default
 ```
+
+Recarga Apache para aplicar los cambios:
+
+```bash
+sudo service apache2 reload
+
 
 
 ---
