@@ -22,9 +22,9 @@ sudo apt install apache2 \
                  php-xml \
                  php-zip
 
-<img width="1920" height="1073" alt="Captura desde 2025-09-29 12-30-42" src="https://github.com/user-attachments/assets/e72db33d-3aa1-491e-b3ef-da39bdffbf35" />
-```
 
+```
+<img width="1920" height="1073" alt="Captura desde 2025-09-29 12-30-42" src="https://github.com/user-attachments/assets/e72db33d-3aa1-491e-b3ef-da39bdffbf35" />
 
 ---
 
