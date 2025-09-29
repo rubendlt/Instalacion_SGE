@@ -21,7 +21,10 @@ sudo apt install apache2 \
                  php-mysql \
                  php-xml \
                  php-zip
+
+<img width="1920" height="1073" alt="Captura desde 2025-09-29 12-30-42" src="https://github.com/user-attachments/assets/e72db33d-3aa1-491e-b3ef-da39bdffbf35" />
 ```
+
 
 ---
 
@@ -36,6 +39,7 @@ sudo mkdir -p /srv/www
 sudo chown www-data: /srv/www
 curl https://wordpress.org/latest.tar.gz | sudo -u www-data tar zx -C /srv/www
 ```
+<img width="1920" height="1073" alt="Captura desde 2025-09-29 12-31-30" src="https://github.com/user-attachments/assets/348b8353-1973-40c3-aefc-9a0991bf2c0f" />
 
 **Explicación de los comandos:**
 
@@ -70,6 +74,7 @@ Agrega el siguiente contenido:
     </Directory>
 </VirtualHost>
 ```
+<img width="1920" height="1073" alt="Captura desde 2025-09-29 12-32-13" src="https://github.com/user-attachments/assets/78042a36-b889-4d5a-ac50-5012d6b1a308" />
 
 ---
 
@@ -98,6 +103,7 @@ Recarga Apache para aplicar los cambios:
 ```bash
 sudo service apache2 reload
 
+<img width="1920" height="1073" alt="Captura desde 2025-09-29 12-33-30" src="https://github.com/user-attachments/assets/94ec5dc5-b4c2-4314-93eb-a6e8a7f9565e" />
 
 
 ---
@@ -141,6 +147,7 @@ FLUSH PRIVILEGES;
 ```sql
 quit;
 ```
+<img width="1920" height="1073" alt="Captura desde 2025-09-29 12-34-41" src="https://github.com/user-attachments/assets/968dfcf5-a957-4289-985e-902137cd715f" />
 
 *Explicación:*  
 - `CREATE DATABASE` crea la base de datos donde WordPress almacenará su información.  
@@ -167,6 +174,7 @@ sudo -u www-data sed -i 's/database_name_here/wordpress/' /srv/www/wordpress/wp-
 sudo -u www-data sed -i 's/username_here/wordpress/' /srv/www/wordpress/wp-config.php
 sudo -u www-data sed -i 's/password_here/<tu-contraseña>/' /srv/www/wordpress/wp-config.php
 ```
+<img width="1920" height="1073" alt="Captura desde 2025-09-29 12-35-31" src="https://github.com/user-attachments/assets/dc2059c0-3b3f-4ced-a3f0-1a8b7d9694a1" />
 
 ### 3️⃣ Editar las claves de seguridad
 
@@ -205,6 +213,7 @@ Abre tu navegador y visita:
 ```
 http://localhost/
 ```
+<img width="1920" height="1073" alt="Captura desde 2025-09-29 12-51-24" src="https://github.com/user-attachments/assets/0d428c6f-747c-447e-b84f-2eaf3e400959" />
 
 Serás solicitado para:
 
@@ -212,6 +221,7 @@ Serás solicitado para:
 - Nombre de usuario para WordPress.
 - Contraseña para WordPress.
 - Dirección de correo electrónico.
+<img width="1920" height="1073" alt="Captura desde 2025-09-29 12-52-19" src="https://github.com/user-attachments/assets/18db00bf-8f2f-40f1-bf53-7febba7c4d7c" />
 
 > Nota: El nombre de usuario y la contraseña que elijas aquí son **solo para WordPress**. No proporcionan acceso a ninguna otra parte de tu servidor. Asegúrate de que sean diferentes de:
 > - Tus credenciales de MySQL.
@@ -221,3 +231,4 @@ También podrás elegir si quieres que tu sitio sea indexado por los motores de 
 
 *Explicación:*  
 - Esta configuración finaliza la instalación de WordPress y permite que accedas al panel de administración desde tu navegador.
+<img width="1920" height="1073" alt="Captura desde 2025-09-29 12-53-11" src="https://github.com/user-attachments/assets/fcbcdc1e-5da2-4914-9a44-8bd5d6d2a03e" />
